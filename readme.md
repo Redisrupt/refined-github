@@ -1,3 +1,24 @@
+**IMPORTANT**
+
+This fork add:
+
+- The ability to link jira issues in PR titles, so they are clickable and take you directly to the issue
+
+**TODO: Convert to links also the patterns found in PR description.**
+
+To install:
+
+- clone this repo to your local filesystem
+- go to `chrome://extensions` in your browsers
+- click on `Developer mode`
+- Click on `Load unpacked extension`
+- Select the folder `extension` inside the cloned repo
+- If everything goes well now links will be clickable and will take you directly to the jira page
+  for redisrupt.
+
+![example 1](s1.png)
+![example 2](s2.png)
+
 # <img src="extension/icon.png" width="45" align="left"> Refined GitHub
 
 > Chrome extension that simplifies the GitHub interface and adds useful features
