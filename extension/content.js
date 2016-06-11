@@ -4,6 +4,7 @@ const path = location.pathname;
 const ownerName = path.split('/')[1];
 const repoName = path.split('/')[2];
 const repoUrl = `${ownerName}/${repoName}`;
+const isRed = !!location.href.match(/github\.com\/Redisrupt/);
 const isGist = location.hostname === 'gist.github.com';
 const isDashboard = () => location.pathname === '/' || /(^\/(dashboard))/.test(location.pathname) || /(^\/(orgs)\/)(\w|-)+\/(dashboard)/.test(location.pathname);
 const isRepo = () => !isGist && /^\/[^/]+\/[^/]+/.test(location.pathname);
@@ -259,14 +260,24 @@ function addDeleteForkLink() {
 
 function linkifyIssuesInTitles() {
 	const $title = $('.js-issue-title');
-	const titleText = $title.text();
+	let titleText = $title.text();
+
+	if (isRed) {
+		if (/(CPM-\d*)/.test(titleText)) {
+			titleText = titleText.replace(/(CPM-\d*)/g,
+			`<a target="blank" href="https://redisrupt.atlassian.net/browse/$1">$1</a>`
+			);
+		}
+	}
 
 	if (/(#\d+)/.test(titleText)) {
-		$title.html(titleText.replace(
+		titleText = titleText.replace(
 			/#(\d+)/g,
 			`<a href="https://github.com/${repoUrl}/issues/$1">#$1</a>`
-		));
+		);
 	}
+
+	$title.html(titleText);
 }
 
 function addPatchDiffLinks() {
