@@ -1,4 +1,30 @@
 # <img src="extension/icon.png" width="45" align="left"> Refined GitHub [![Chrome version][badge-cws]][link-cws] [![Firefox version][badge-amo]][link-amo] [![Deployment][badge-travis]][link-travis]
+**IMPORTANT**
+
+This fork add:
+
+- The ability to link jira issues in PR titles, so they are clickable and take you directly to the issue
+- Include a prebuild version of the extension for chrome:
+
+**TODO: Convert to links also the patterns found in PR description.**
+
+## To install:
+
+- [Download extension](extension.zip);
+- Unzip it to a folder in your local filesystem
+- go to `chrome://extensions` in your browsers
+- click on `Developer mode`
+- Click on `Load unpacked extension`
+- Select the folder `extension` you just unzip
+- Reload any github page you have opened
+
+
+If everything goes well now links will be clickable and will take you directly to the jira page for Reva. Enjoy!
+
+![example 1](s1.png)
+![example 2](s2.png)
+
+# <img src="extension/icon.png" width="45" align="left"> Refined GitHub
 
 [badge-cws]: https://img.shields.io/chrome-web-store/v/hlepfoohegkhhmjieoechaddaejaokhf.svg?label=chrome
 [badge-amo]: https://img.shields.io/amo/v/refined-github-.svg?label=firefox

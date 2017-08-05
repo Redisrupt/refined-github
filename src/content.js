@@ -208,10 +208,20 @@ function addDeleteForkLink() {
 }
 
 function linkifyIssuesInTitles() {
+	const isRed = !!location.href.match(/github\.com\/Redisrupt/);
+
 	observeEl(select('#partial-discussion-header').parentNode, () => {
 		const title = select('.js-issue-title:not(.refined-linkified-title)');
 		if (title) {
 			title.classList.add('refined-linkified-title');
+
+			let text = title.textContent;
+			if (isRed && /(CPM[- ]\d*)/.test(text) && !title.classList.contains('linkedText') ) {
+				title.classList.add('linkedText')
+				text = text.replace(/(CPM[- ]\d*)/g, `<a target="blank" href="https://redisrupt.atlassian.net/browse/$1">$1</a>`);
+				title.innerHTML = text;
+			}
+
 			editTextNodes(linkifyIssues, title);
 		}
 	});
