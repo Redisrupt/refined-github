@@ -1,5 +1,4 @@
-* text=auto
+* text=auto eol=lf
 *.ai binary
-*.js text eol=lf
 readme.md merge=union
-extension/content.css merge=union
+source/content.css merge=union
